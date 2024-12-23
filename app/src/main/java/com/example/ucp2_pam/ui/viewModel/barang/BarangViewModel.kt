@@ -58,6 +58,10 @@ class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewMod
             )
         }
     }
+
+    fun resetSnackBarMessage() {
+        uiState = uiState.copy(snackBarMessage = null)
+    }
 }
 
 data class FormErrorStateBarang(
