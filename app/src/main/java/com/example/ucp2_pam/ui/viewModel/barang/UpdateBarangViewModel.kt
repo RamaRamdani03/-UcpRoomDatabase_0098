@@ -1,5 +1,8 @@
 package com.example.ucp2_pam.ui.viewModel.barang
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.ucp2_pam.data.entity.Barang
@@ -10,6 +13,8 @@ class UpdateBarangViewModel (
     private val repositoryBarang: RepositoryBarang
 ) : ViewModel() {
 
+    var updateUiStateBarang by mutableStateOf(BarangUiState())
+        private set
 }
 
 fun Barang.toUiStateBarang() : BarangUiState = BarangUiState (
