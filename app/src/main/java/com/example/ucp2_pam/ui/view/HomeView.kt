@@ -44,6 +44,7 @@ fun HomeNavbar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            // Icon and Text in a Column
             Column(
                 horizontalAlignment = Alignment.Start
             ) {
@@ -67,6 +68,7 @@ fun HomeNavbar(
                     fontSize = 16.sp
                 )
             }
+
             Image(
                 painter = painterResource(id = R.drawable.untaa),
                 contentDescription = "Profile Picture",
@@ -75,6 +77,55 @@ fun HomeNavbar(
                     .clip(RoundedCornerShape(50.dp))
                     .shadow(10.dp, RoundedCornerShape(50.dp))
             )
+        }
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(modifier = Modifier.height(200.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.CenterHorizontally),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Card(
+                modifier = Modifier
+                    .weight(1f)
+                    .height(150.dp)
+                    .padding(8.dp)
+                    .clickable { onHomeBarang() },
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF9F8170)),
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.keranjanggggggg),
+                            contentDescription = "Barang Icon",
+                            modifier = Modifier.size(80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Barang",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black
+                        )
+                    }
+                }
+            }
         }
     }
 }
