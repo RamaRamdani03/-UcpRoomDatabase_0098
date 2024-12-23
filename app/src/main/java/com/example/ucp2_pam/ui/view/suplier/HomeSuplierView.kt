@@ -21,6 +21,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ucp2_pam.data.entity.Suplier
+@Composable
+fun ListSuplier(
+    listSuplier: List<Suplier>,
+    modifier: Modifier = Modifier,
+    onClick: (String) -> Unit = { }
+) {
+
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
