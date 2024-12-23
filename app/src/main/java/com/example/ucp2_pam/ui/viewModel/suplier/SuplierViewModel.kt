@@ -56,6 +56,10 @@ class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : Vie
             )
         }
     }
+
+    fun resetSnackBarMessage(){
+        uiState = uiState.copy(snackBarMessage = null)
+    }
 }
 
 data class FormErrorState(
