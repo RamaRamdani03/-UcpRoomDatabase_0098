@@ -12,3 +12,16 @@ class DetailBarangViewModel(
     private val _id : String = checkNotNull(savedStateHandle[DestinasiDetailBarang.id])
 
 }
+
+data class DetailUiStateBarang(
+    val detailUiEvent: BarangEvent = BarangEvent(),
+    val isLoading: Boolean = false,
+    val isError: Boolean = false,
+    val errorMessage: String = ""
+) {
+    val isUiEmpty: Boolean
+        get() = detailUiEvent != BarangEvent()
+
+    val isUiEventNotEmpty: Boolean
+        get() =detailUiEvent != BarangEvent()
+}
