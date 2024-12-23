@@ -141,6 +141,17 @@ fun InsertSuplierView(
                 showBackButton = true,
                 judul = "Tambah Suplier"
             )
+            InsertBodySuplier(
+                uiState = uiState,
+                onValueChange = { updateEvent ->
+                    // Update state di ViewModel
+                    viewModel.updateState(updateEvent)
+                },
+                onClick = {
+                    viewModel.saveData()
+                    onNavigate()
+                }
+            )
         }
     }
 }
