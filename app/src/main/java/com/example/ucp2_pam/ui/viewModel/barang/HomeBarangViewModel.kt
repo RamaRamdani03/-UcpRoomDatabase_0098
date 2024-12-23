@@ -28,7 +28,16 @@ class HomeBarangViewModel (
         .onStart {
             emit(HomeUiStateBarang(isLoading = true))
             delay(900)
-
+        }
+        .catch {
+            emit(
+                HomeUiStateBarang(
+                    isLoading = false,
+                    isError = true,
+                    errorMessage = it.message?: "Terjadi Kesalahan"
+                )
+            )
+        }
 }
 
 data class HomeUiStateBarang (
