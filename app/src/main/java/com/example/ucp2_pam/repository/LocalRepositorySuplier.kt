@@ -2,6 +2,7 @@ package com.example.ucp2_pam.repository
 
 import com.example.ucp2_pam.data.dao.SuplierDao
 import com.example.ucp2_pam.data.entity.Suplier
+import kotlinx.coroutines.flow.Flow
 
 class LocalRepositorySuplier (
     private val suplierDao: SuplierDao
@@ -17,4 +18,7 @@ class LocalRepositorySuplier (
     override suspend fun updateSuplier(suplier: Suplier) {
         suplierDao.updateSuplier(suplier)
     }
+
+    override fun getAllSuplier(): Flow<List<Suplier>> =
+        suplierDao.getAllSuplier()
 }
