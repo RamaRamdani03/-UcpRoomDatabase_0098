@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.ucp2_pam.data.entity.Barang
 import com.example.ucp2_pam.repository.RepositoryBarang
+import kotlinx.coroutines.launch
 
 class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewModel() {
 
@@ -34,6 +36,23 @@ class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewMod
 
     fun saveData() {
         val currentEvent = uiState.barangEvent
+
+        if (validateFields()) {
+            viewModelScope.launch {
+                try {
+                    repositoryBarang.insertBarang(currentEvent.toBarangEntity())
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data Berhasil Disimpan",
+                        barangEvent = BarangEvent(),
+                        isEntryValid = FormErrorStateBarang(),
+                    )
+                } catch (e: Exception) {
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data gagal disimpan"
+                    )
+                }
+            }
+        }
     }
 }
 
