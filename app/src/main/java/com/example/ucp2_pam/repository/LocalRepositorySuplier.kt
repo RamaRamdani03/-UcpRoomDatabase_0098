@@ -21,4 +21,7 @@ class LocalRepositorySuplier (
 
     override fun getAllSuplier(): Flow<List<Suplier>> =
         suplierDao.getAllSuplier()
+
+    override fun getSuplier(id: String): Flow<Suplier> =
+        suplierDao.getSuplier(id)
 }
