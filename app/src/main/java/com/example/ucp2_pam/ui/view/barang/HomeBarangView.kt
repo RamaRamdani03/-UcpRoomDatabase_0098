@@ -11,17 +11,23 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -31,10 +37,61 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2_pam.R
 import com.example.ucp2_pam.data.entity.Barang
+import com.example.ucp2_pam.ui.costumwidget.TopAppBar
+import com.example.ucp2_pam.ui.viewModel.PenyediaViewModel
+import com.example.ucp2_pam.ui.viewModel.barang.HomeBarangViewModel
 import com.example.ucp2_pam.ui.viewModel.barang.HomeUiStateBarang
 import kotlinx.coroutines.launch
+
+@Composable
+fun HomeBarangView(
+    modifier: Modifier = Modifier,
+    viewModel: HomeBarangViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    onAddBarangClick: () -> Unit = { },
+    onDetailBarangClick: (String) -> Unit = { },
+    onBack: () -> Unit
+) {
+    Scaffold (
+        topBar = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, bottom = 8.dp),
+                contentAlignment = Alignment.Center
+            ){
+            TopAppBar(
+                judul = "Data Barang",
+                showBackButton = true,
+                onBack = onBack,
+            ) }
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = onAddBarangClick,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Tambah Barang"
+                )
+            }
+        }
+    ) { innerPadding ->
+        val homeUiStateBarang by viewModel.homeUiStateBarang.collectAsState()
+
+        BodyHomeBarangView(
+            homeUiStateBarang = homeUiStateBarang,
+            onClick = {
+                onDetailBarangClick(it)
+            },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
 
 @Composable
 fun BodyHomeBarangView (
