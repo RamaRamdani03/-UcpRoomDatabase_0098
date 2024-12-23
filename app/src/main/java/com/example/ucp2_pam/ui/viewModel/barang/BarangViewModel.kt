@@ -1,6 +1,7 @@
 package com.example.ucp2_pam.ui.viewModel.barang
 
 import androidx.lifecycle.ViewModel
+import com.example.ucp2_pam.data.entity.Barang
 import com.example.ucp2_pam.repository.RepositoryBarang
 
 class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewModel() {
@@ -28,4 +29,13 @@ data class BarangEvent(
     val harga: String = "",
     val stok: String = "",
     val NamaSuplier: String = "",
+)
+
+fun BarangEvent.toBarangEntity(): Barang = Barang(
+    id = id,
+    nama = nama,
+    deskripsi = deskripsi,
+    harga = harga,
+    stok = stok,
+    NamaSuplier = NamaSuplier,
 )
