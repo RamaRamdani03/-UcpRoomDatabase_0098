@@ -52,6 +52,10 @@ class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewMod
                     )
                 }
             }
+        } else {
+            uiState = uiState.copy(
+                snackBarMessage = "Input Tidak Valid. Periksa Kembali data Anda!"
+            )
         }
     }
 }
