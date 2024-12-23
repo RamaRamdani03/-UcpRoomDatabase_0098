@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -105,11 +104,70 @@ fun FormSuplier(
 }
 
 @Composable
+fun InsertSuplierView(
+    onBack: () -> Unit,
+    onNavigate: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: SuplierViewModel = viewModel(factory = PenyediaViewModel.Factory)
+) {
+    val uiState = viewModel.uiState
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(uiState.snackBarMessage) {
+        uiState.snackBarMessage?.let { message ->
+            coroutineScope.launch {
+                snackbarHostState.showSnackbar(message)
+                viewModel.resetSnackBarMessage()
+            }
+
+        }
+    }
+
+    Scaffold(
+        modifier = modifier,
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState)}
+    ) { padding ->
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(16.dp)
+        ){
+
+            TopAppBar(
+                onBack = onBack,
+                showBackButton = true,
+                judul = "Tambah Suplier"
+            )
+            // Isi Body
+            InsertBodySuplier(
+                uiState = uiState,
+                onValueChange = { updateEvent ->
+                    // Update state di ViewModel
+                    viewModel.updateState(updateEvent)
+                },
+                onClick = {
+                    viewModel.saveData()
+                    onNavigate()
+                }
+            )
+        }
+    }
+}
+
+@Composable
 fun InsertBodySuplier(
     modifier: Modifier = Modifier,
     onValueChange: (SuplierEvent) -> Unit,
     uiState: SuplierUiState,
     onClick: () -> Unit
 ) {
+   Column(
+       modifier = modifier.fillMaxWidth(),
+       verticalArrangement = Arrangement.Center,
+       horizontalAlignment = Alignment.CenterHorizontally
+   ) {
 
+   }
 }
