@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.ucp2_pam.data.SuplierList
+import com.example.ucp2_pam.ui.costumwidget.DynamicSelectTextField
 import com.example.ucp2_pam.ui.navigasi.AlamatNavigasi
 import com.example.ucp2_pam.ui.viewModel.barang.BarangEvent
 import com.example.ucp2_pam.ui.viewModel.barang.FormErrorStateBarang
@@ -101,5 +103,21 @@ fun FormBarang(
             text = errorStateBarang.stok ?: "",
             color = Color.Red
         )
+
+        DynamicSelectTextField(
+            label = "Nama Suplier",
+            modifier = Modifier,
+            selectedValue = barangEvent.NamaSuplier,
+            onValueChangedEvent = { selectedSuplier ->
+                onValueChange(barangEvent.copy(NamaSuplier = selectedSuplier))
+            },
+            options = SuplierList.DataNama(),
+            isError = errorStateBarang.NamaSuplier != null
+        )
+        Text(
+            text = errorStateBarang.NamaSuplier ?: "",
+            color = Color.Red
+        )
+
     }
 }
