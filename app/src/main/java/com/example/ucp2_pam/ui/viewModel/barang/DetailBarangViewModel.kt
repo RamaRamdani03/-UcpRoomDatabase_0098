@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 class DetailBarangViewModel(
     savedStateHandle: SavedStateHandle,
@@ -49,6 +50,14 @@ class DetailBarangViewModel(
                 isLoading = true,
             ),
         )
+
+    fun deleteBarang() {
+        detailUiState.value.detailUiEvent.toBarangEntity(). let {
+            viewModelScope.launch {
+                repositoryBarang.deleteBarang(it)
+            }
+        }
+    }
 }
 
 data class DetailUiStateBarang(
