@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.ucp2_pam.data.entity.Suplier
 import com.example.ucp2_pam.repository.RepositorySuplier
+import kotlinx.coroutines.launch
 
 class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : ViewModel() {
 
@@ -28,6 +30,10 @@ class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : Vie
 
         uiState = uiState.copy(isEntryValid = errorState)
         return errorState.isValid()
+    }
+
+    fun saveData() {
+        val currentEvent = uiState.suplierEvent
     }
 }
 
