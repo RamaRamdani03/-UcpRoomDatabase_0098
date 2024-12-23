@@ -16,6 +16,21 @@ class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewMod
             barangEvent = barangEvent,
         )
     }
+
+    private fun validateFields(): Boolean {
+        val event = uiState.barangEvent
+        val errorState = FormErrorStateBarang(
+            id = if (event.id.isNotEmpty()) null else "Id Tidak Boleh Kosong",
+            nama = if (event.nama.isNotEmpty()) null else "Nama Tidak Boleh Kosong",
+            deskripsi = if (event.deskripsi.isNotEmpty()) null else "Deskripsi Tidak Boleh Kosong",
+            harga = if (event.harga.isNotEmpty()) null else "Harga Tidak Boleh Kosong",
+            stok = if(event.stok.isNotEmpty()) null else "Stok Tidak Boleh Kosong",
+            NamaSuplier = if (event.NamaSuplier.isNotEmpty()) null else "Nama Suplier Tidak Boleh Kosong"
+        )
+
+        uiState= uiState.copy(isEntryValid = errorState)
+        return errorState.isValid()
+    }
 }
 
 data class FormErrorStateBarang(
