@@ -5,12 +5,17 @@ import androidx.lifecycle.ViewModel
 import com.example.ucp2_pam.data.entity.Barang
 import com.example.ucp2_pam.repository.RepositoryBarang
 import com.example.ucp2_pam.ui.navigasi.DestinasiDetailBarang
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
 
 class DetailBarangViewModel(
     savedStateHandle: SavedStateHandle,
     private val repositoryBarang: RepositoryBarang,
 ) : ViewModel() {
     private val _id : String = checkNotNull(savedStateHandle[DestinasiDetailBarang.id])
+
+    val detailUiState: StateFlow<DetailUiStateBarang> = repositoryBarang.getBarang(_id)
+        .filterNotNull()
 
 }
 
