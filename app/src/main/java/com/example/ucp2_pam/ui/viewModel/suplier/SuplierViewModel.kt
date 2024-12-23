@@ -34,6 +34,27 @@ class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : Vie
 
     fun saveData() {
         val currentEvent = uiState.suplierEvent
+
+        if (validateFields()) {
+            viewModelScope.launch {
+                try {
+                    repositorySuplier.insertSuplier(currentEvent.toSuplierEntity())
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data berhasl disimpan",
+                        suplierEvent = SuplierEvent(),
+                        isEntryValid = FormErrorState()
+                    )
+                } catch (e: Exception) {
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data gagal disimpan"
+                    )
+                }
+            }
+        } else {
+            uiState = uiState.copy(
+                snackBarMessage = "Input tidak valid. Periksa kembali data Anda!"
+            )
+        }
     }
 }
 
