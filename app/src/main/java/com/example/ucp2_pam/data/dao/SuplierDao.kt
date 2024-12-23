@@ -21,4 +21,7 @@ interface SuplierDao{
 
     @Query("SELECT * FROM suplier ORDER BY nama ASC")
     fun getAllSuplier(): Flow<List<Suplier>>
+
+    @Query("SELECT * FROM suplier WHERE id = :id")
+    fun getSuplier(id: String): Flow<Suplier>
 }
