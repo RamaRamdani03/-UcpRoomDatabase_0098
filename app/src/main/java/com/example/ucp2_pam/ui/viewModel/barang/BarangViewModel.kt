@@ -20,3 +20,12 @@ data class FormErrorStateBarang(
                 stok == null && NamaSuplier == null
     }
 }
+
+data class BarangEvent(
+    val id: String = "",
+    val nama: String = "",
+    val deskripsi: String = "",
+    val harga: String = "",
+    val stok: String = "",
+    val NamaSuplier: String = "",
+)
