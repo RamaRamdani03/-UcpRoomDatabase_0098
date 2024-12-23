@@ -19,5 +19,16 @@ abstract class TokoDatabase : RoomDatabase(){
     companion object {
         @Volatile
         private var Instance: TokoDatabase? = null
+
+        fun getDatabase(context: Context): TokoDatabase {
+            return (Instance ?: synchronized(this) {
+                Room.databaseBuilder(
+                    context,
+                    TokoDatabase::class.java,
+                    name = "TokoDatabase"
+                )
+                    .build().also { Instance =it }
+            })
+        }
     }
 }
