@@ -38,6 +38,13 @@ class HomeBarangViewModel (
                 )
             )
         }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = HomeUiStateBarang(
+                isError = true
+            )
+        )
 }
 
 data class HomeUiStateBarang (
