@@ -1,11 +1,21 @@
 package com.example.ucp2_pam.ui.viewModel.barang
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.ucp2_pam.data.entity.Barang
 import com.example.ucp2_pam.repository.RepositoryBarang
 
 class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewModel() {
 
+    var uiState by mutableStateOf(BarangUiState())
+
+    fun updateState(barangEvent: BarangEvent) {
+        uiState = uiState.copy(
+            barangEvent = barangEvent,
+        )
+    }
 }
 
 data class FormErrorStateBarang(
