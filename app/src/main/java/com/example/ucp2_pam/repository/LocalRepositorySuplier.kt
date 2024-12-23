@@ -9,4 +9,12 @@ class LocalRepositorySuplier (
     override suspend fun insertSuplier(suplier: Suplier){
         suplierDao.insertSuplier(suplier)
     }
+
+    override suspend fun deleteSuplier(suplier: Suplier) {
+        suplierDao.deleteSuplier(suplier)
+    }
+
+    override suspend fun updateSuplier(suplier: Suplier) {
+        suplierDao.updateSuplier(suplier)
+    }
 }
