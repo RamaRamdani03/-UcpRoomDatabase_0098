@@ -1,6 +1,7 @@
 package com.example.ucp2_pam.ui.costumwidget
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,4 +22,12 @@ fun DynamicSelectTextField(
     isError: Boolean = false
 ) {
     var expanded by remember { mutableStateOf(false) }
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = !expanded },
+        modifier = modifier
+    ) {
+
+    }
 }
