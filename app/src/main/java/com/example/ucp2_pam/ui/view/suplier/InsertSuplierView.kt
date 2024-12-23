@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.ucp2_pam.ui.costumwidget.TopAppBar
 import com.example.ucp2_pam.ui.viewModel.PenyediaViewModel
 import com.example.ucp2_pam.ui.viewModel.suplier.FormErrorState
 import com.example.ucp2_pam.ui.viewModel.suplier.SuplierEvent
@@ -121,6 +120,20 @@ fun InsertSuplierView(
                 snackbarHostState.showSnackbar(message)
                 viewModel.resetSnackBarMessage()
             }
+
+        }
+    }
+
+    Scaffold(
+        modifier = modifier,
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState)}
+    ) { padding ->
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(16.dp)
+        ){
 
         }
     }
