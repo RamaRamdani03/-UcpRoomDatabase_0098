@@ -7,6 +7,7 @@ import com.example.ucp2_pam.repository.RepositoryBarang
 import com.example.ucp2_pam.ui.navigasi.DestinasiDetailBarang
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -28,6 +29,15 @@ class DetailBarangViewModel(
         .onStart {
             emit(DetailUiStateBarang(isLoading = true))
             delay(600)
+        }
+        .catch {
+            emit(
+                DetailUiStateBarang(
+                    isLoading = false,
+                    isError = true,
+                    errorMessage = it.message ?: "Terjadi Kesalahan",
+                )
+            )
         }
 }
 
