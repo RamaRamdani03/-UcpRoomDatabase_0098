@@ -7,9 +7,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.ucp2_pam.ui.viewModel.suplier.FormErrorState
 import com.example.ucp2_pam.ui.viewModel.suplier.SuplierEvent
 
+@Preview
 @Composable
 fun FormSuplier(
     suplierEvent: SuplierEvent = SuplierEvent(),
@@ -49,6 +51,36 @@ fun FormSuplier(
         )
         Text(
             text = errorState.nama ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.kontak,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(kontak = it))
+            },
+            label = { Text("Kontak") },
+            isError = errorState.id != null,
+            placeholder = { Text("Masukkan Kontak") },
+        )
+        Text(
+            text = errorState.kontak ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.alamat,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(alamat = it))
+            },
+            label = { Text("Alamat") },
+            isError = errorState.alamat != null,
+            placeholder = { Text("Masukkan Alamat") },
+        )
+        Text(
+            text = errorState.alamat ?: "",
             color = Color.Red
         )
     }
