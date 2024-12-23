@@ -6,6 +6,7 @@ import com.example.ucp2_pam.repository.RepositorySuplier
 
 class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : ViewModel() {
 
+
 }
 
 data class FormErrorState(
@@ -18,6 +19,13 @@ data class FormErrorState(
         return id == null && nama == null && kontak == null && alamat == null
     }
 }
+
+fun SuplierEvent.toSuplierEntity(): Suplier = Suplier(
+    id = id,
+    nama = nama,
+    kontak = kontak,
+    alamat = alamat
+)
 
 data class SuplierEvent(
     val id: String = "",
