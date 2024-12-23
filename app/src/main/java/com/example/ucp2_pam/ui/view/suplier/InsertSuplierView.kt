@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.ucp2_pam.ui.viewModel.suplier.FormErrorState
 import com.example.ucp2_pam.ui.viewModel.suplier.SuplierEvent
-import kotlinx.coroutines.launch
 
 @Composable
 fun FormSuplier(
@@ -35,6 +34,21 @@ fun FormSuplier(
         )
         Text(
             text = errorState.id ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.nama,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(nama = it))
+            },
+            label = { Text("Nama") },
+            isError = errorState.nama != null,
+            placeholder = { Text("Masukkan Nama") },
+        )
+        Text(
+            text = errorState.nama ?: "",
             color = Color.Red
         )
     }
