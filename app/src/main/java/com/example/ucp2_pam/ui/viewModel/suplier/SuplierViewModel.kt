@@ -16,6 +16,19 @@ class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : Vie
             suplierEvent = suplierEvent,
         )
     }
+
+    private fun validateFields(): Boolean {
+        val event = uiState.suplierEvent
+        val errorState = FormErrorState(
+            id = if (event.id.isNotEmpty()) null else "id tidak boleh kosong",
+            nama = if (event.nama.isNotEmpty()) null else "Nama tidak boleh kosong",
+            kontak = if (event.kontak.isNotEmpty()) null else "Kontak tidak boleh kosong",
+            alamat = if (event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong"
+        )
+
+        uiState = uiState.copy(isEntryValid = errorState)
+        return errorState.isValid()
+    }
 }
 
 data class FormErrorState(
