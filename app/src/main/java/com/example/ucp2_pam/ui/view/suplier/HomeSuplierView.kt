@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.DateRange
@@ -21,13 +23,26 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ucp2_pam.data.entity.Suplier
+
 @Composable
 fun ListSuplier(
     listSuplier: List<Suplier>,
     modifier: Modifier = Modifier,
     onClick: (String) -> Unit = { }
 ) {
-
+    LazyColumn (
+        modifier =modifier
+    ) {
+        items(
+            items = listSuplier,
+            itemContent = { suplier ->
+                CardSuplier(
+                    suplier = suplier,
+                    onClick = { onClick(suplier.id) }
+                )
+            }
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
