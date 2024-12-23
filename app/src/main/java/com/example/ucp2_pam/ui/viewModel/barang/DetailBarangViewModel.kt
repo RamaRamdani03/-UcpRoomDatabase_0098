@@ -7,6 +7,7 @@ import com.example.ucp2_pam.repository.RepositoryBarang
 import com.example.ucp2_pam.ui.navigasi.DestinasiDetailBarang
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 
 class DetailBarangViewModel(
     savedStateHandle: SavedStateHandle,
@@ -16,7 +17,12 @@ class DetailBarangViewModel(
 
     val detailUiState: StateFlow<DetailUiStateBarang> = repositoryBarang.getBarang(_id)
         .filterNotNull()
-
+        .map {
+            DetailUiStateBarang (
+                detailUiEvent = it.toDetailUiEventBarang(),
+                isLoading = false,
+            )
+        }
 }
 
 data class DetailUiStateBarang(
