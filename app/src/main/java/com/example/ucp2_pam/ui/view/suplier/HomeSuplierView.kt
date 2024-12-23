@@ -23,6 +23,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ucp2_pam.data.entity.Suplier
+import com.example.ucp2_pam.ui.viewModel.suplier.HomeUiState
+
+@Composable
+fun BodyHomeSuplierView(
+    homeUiState: HomeUiState,
+    onClick: (String) -> Unit = { },
+    modifier: Modifier = Modifier
+) {
+
+}
 
 @Composable
 fun ListSuplier(
