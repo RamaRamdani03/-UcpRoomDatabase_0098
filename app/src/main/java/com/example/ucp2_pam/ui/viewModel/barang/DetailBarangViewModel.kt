@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import com.example.ucp2_pam.data.entity.Barang
 import com.example.ucp2_pam.repository.RepositoryBarang
 import com.example.ucp2_pam.ui.navigasi.DestinasiDetailBarang
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 
 class DetailBarangViewModel(
     savedStateHandle: SavedStateHandle,
@@ -22,6 +24,10 @@ class DetailBarangViewModel(
                 detailUiEvent = it.toDetailUiEventBarang(),
                 isLoading = false,
             )
+        }
+        .onStart {
+            emit(DetailUiStateBarang(isLoading = true))
+            delay(600)
         }
 }
 
