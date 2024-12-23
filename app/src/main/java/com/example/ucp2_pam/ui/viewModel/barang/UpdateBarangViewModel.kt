@@ -79,6 +79,10 @@ class UpdateBarangViewModel (
             )
         }
     }
+
+    fun resetSnackBarMessage() {
+        updateUiStateBarang = updateUiStateBarang.copy(snackBarMessage = null)
+    }
 }
 
 fun Barang.toUiStateBarang() : BarangUiState = BarangUiState (
