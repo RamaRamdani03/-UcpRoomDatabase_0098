@@ -201,6 +201,39 @@ fun HomeNavbar(
                     }
                 }
             }
+
+            Card(
+                modifier = Modifier
+                    .weight(1f)
+                    .height(150.dp)
+                    .padding(8.dp)
+                    .clickable { onAddSuplier() },
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFEDC9AF)),
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.inputsuplierynobackground),
+                            contentDescription = "Tambah Suplier Icon",
+                            modifier = Modifier.size(80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Tambah Suplier",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black
+                        )
+                    }
+                }
+            }
         }
     }
 }
