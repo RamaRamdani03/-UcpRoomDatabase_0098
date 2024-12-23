@@ -31,6 +31,10 @@ class BarangViewModel (private val repositoryBarang: RepositoryBarang) : ViewMod
         uiState= uiState.copy(isEntryValid = errorState)
         return errorState.isValid()
     }
+
+    fun saveData() {
+        val currentEvent = uiState.barangEvent
+    }
 }
 
 data class FormErrorStateBarang(
