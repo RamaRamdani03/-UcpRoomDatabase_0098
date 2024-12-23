@@ -15,4 +15,9 @@ abstract class TokoDatabase : RoomDatabase(){
     abstract fun barangDao(): BarangDao
 
     abstract fun supplierDao(): SuplierDao
+
+    companion object {
+        @Volatile
+        private var Instance: TokoDatabase? = null
+    }
 }
