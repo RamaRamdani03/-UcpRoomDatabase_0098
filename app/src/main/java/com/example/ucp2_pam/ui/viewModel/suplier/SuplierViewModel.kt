@@ -4,14 +4,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.ucp2_pam.data.entity.Suplier
 import com.example.ucp2_pam.repository.RepositorySuplier
-import kotlinx.coroutines.launch
 
 class SuplierViewModel (private val  repositorySuplier: RepositorySuplier) : ViewModel() {
 
+    var uiState by mutableStateOf(SuplierUiState())
 
+    fun updateState(suplierEvent: SuplierEvent) {
+        uiState = uiState.copy(
+            suplierEvent = suplierEvent,
+        )
+    }
 }
 
 data class FormErrorState(
