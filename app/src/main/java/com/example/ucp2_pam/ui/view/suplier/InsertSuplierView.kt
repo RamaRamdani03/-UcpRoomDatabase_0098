@@ -1,5 +1,7 @@
 package com.example.ucp2_pam.ui.view.suplier
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.ucp2_pam.ui.viewModel.suplier.FormErrorState
@@ -14,4 +16,9 @@ fun FormSuplier(
     modifier: Modifier = Modifier
 ) {
 
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+
+    }
 }
