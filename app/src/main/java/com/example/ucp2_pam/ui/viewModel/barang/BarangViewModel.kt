@@ -39,3 +39,9 @@ fun BarangEvent.toBarangEntity(): Barang = Barang(
     stok = stok,
     NamaSuplier = NamaSuplier,
 )
+
+data class BarangUiState(
+    val barangEvent: BarangEvent = BarangEvent(),
+    val isEntryValid: FormErrorStateBarang = FormErrorStateBarang(),
+    val snackBarMessage: String? = null,
+)
