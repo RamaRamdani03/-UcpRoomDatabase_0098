@@ -126,6 +126,39 @@ fun HomeNavbar(
                     }
                 }
             }
+
+            Card(
+                modifier = Modifier
+                    .weight(1f)
+                    .height(150.dp)
+                    .padding(8.dp)
+                    .clickable { onAddBarang() },
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF9F8170)),
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.inputbarangyoooooo),
+                            contentDescription = "Tambah Barang Icon",
+                            modifier = Modifier.size(80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Tambah Barang",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.Black
+                        )
+                    }
+                }
+            }
         }
     }
 }
