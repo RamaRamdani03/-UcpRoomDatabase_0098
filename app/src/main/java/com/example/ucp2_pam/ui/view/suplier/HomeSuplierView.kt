@@ -51,7 +51,43 @@ fun HomeSuplierView(
     onBack: () -> Unit = { },
     modifier: Modifier
 ) {
+    Scaffold (
+        topBar = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, bottom = 8.dp),
+                contentAlignment = Alignment.Center
+            ) {
+            TopAppBar(
+                judul = "List Suplier",
+                showBackButton = true,
+                onBack = onBack,
+            ) }
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = onAddSuplierClick,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Tambah Suplier"
+                )
+            }
+        }
+    ) { innerPadding ->
+        val homeUiState by viewModel.homeUiState.collectAsState()
 
+        BodyHomeSuplierView(
+            homeUiState = homeUiState,
+            onClick = {
+                onDetailClick(it)
+            },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
 }
 
 @Composable
