@@ -14,4 +14,9 @@ data class FormErrorStateBarang(
     val harga: String? = null,
     val stok: String? = null,
     val NamaSuplier: String? = null,
-)
+) {
+    fun isValid(): Boolean{
+        return id == null && nama == null && deskripsi == null && harga == null &&
+                stok == null && NamaSuplier == null
+    }
+}
