@@ -1,14 +1,26 @@
 Halaman Home
-![Halaman Utama](https://github.com/user-attachments/assets/a4e8a6c7-8a2d-48a6-9929-5a4974fa97af)
+![halamanutama](https://github.com/user-attachments/assets/5f23ba80-e35a-4145-ac3c-ba6d14f7ced3)
 
 Halaman untuk Insert SUplier
-![Tambah Suplier](https://github.com/user-attachments/assets/99a2c744-7e42-4e1f-9405-abfa93717444)\
+![halamaninsertsuplier](https://github.com/user-attachments/assets/ca3c9593-6b72-4309-bfb4-6fe0bba2297c)
 
 Halaman List Suplier
-![List Suplier](https://github.com/user-attachments/assets/d3a876f6-baea-4123-98c7-c696822934ad)
+![halamanlistsuplier](https://github.com/user-attachments/assets/9f57d8e0-706a-4c9a-9f12-1e2135f85597)
 
 Halaman untuk Tambah Barang
-![Tambah Barang](https://github.com/user-attachments/assets/a2604f73-9e14-4c8b-bf3d-41f6da5a10e0)
+![tambahbarang](https://github.com/user-attachments/assets/6bbe4ed3-04d9-4a70-a12a-42e3a9292c8c)
 
 Halaman Data Barang
-![Data Barang](https://github.com/user-attachments/assets/3f5b75ad-c34e-4a6e-bcf6-8796994f472a)
+![detailbarang](https://github.com/user-attachments/assets/6728358c-d9ab-4c62-8036-5d1b27bd96e4)
+
+Halaman Edit Barang
+![halamaneditbarang](https://github.com/user-attachments/assets/745ad73d-0eda-466e-afec-a4cfd7e37f6d)
+
+Hasil Edit
+![hasil edit](https://github.com/user-attachments/assets/cd1a71af-5601-4952-bf68-a31146b02e19)
+
+Delete Barang
+![deletebarang](https://github.com/user-attachments/assets/1b10167b-5341-4faa-88db-754fed0bbcf0)
+
+Hasil Delete
+![hasildelete](https://github.com/user-attachments/assets/54bd70b3-49ce-44ed-aeb2-b0d46b1734cb)
