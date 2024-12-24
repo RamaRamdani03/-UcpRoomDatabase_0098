@@ -1,7 +1,7 @@
 Halaman Home
 ![halamanutama](https://github.com/user-attachments/assets/5f23ba80-e35a-4145-ac3c-ba6d14f7ced3)
 
-Halaman untuk Insert SUplier
+Halaman untuk Insert Suplier
 ![halamaninsertsuplier](https://github.com/user-attachments/assets/ca3c9593-6b72-4309-bfb4-6fe0bba2297c)
 
 Halaman List Suplier
@@ -11,7 +11,7 @@ Halaman untuk Tambah Barang
 ![tambahbarang](https://github.com/user-attachments/assets/6bbe4ed3-04d9-4a70-a12a-42e3a9292c8c)
 
 Halaman Data Barang
-![detailbarang](https://github.com/user-attachments/assets/6728358c-d9ab-4c62-8036-5d1b27bd96e4)
+![halamandatabarang](https://github.com/user-attachments/assets/7398bc36-92cd-4e9b-b6e3-a487a690cf71)
 
 Halaman Edit Barang
 ![halamaneditbarang](https://github.com/user-attachments/assets/745ad73d-0eda-466e-afec-a4cfd7e37f6d)
