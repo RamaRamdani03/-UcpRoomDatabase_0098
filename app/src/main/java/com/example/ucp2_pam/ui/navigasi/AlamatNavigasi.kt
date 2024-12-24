@@ -23,3 +23,16 @@ object DestinasiAddSuplier : AlamatNavigasi {
 object DestinasAddBarang : AlamatNavigasi {
     override val route = "addbarang"
 }
+
+
+object DestinasiDetailBarang : AlamatNavigasi {
+    override val route = "detailBarang"
+    const val id = "id"
+    val routesWithArg = "$route/{$id}"
+}
+
+object  DestinasiUpdateBarang : AlamatNavigasi {
+    override val route = "update"
+    const val id = "id"
+    val routesWithArg = "$route/{$id}"
+}
